@@ -14,6 +14,8 @@ const LoginInput = () => {
   }
   const handleUserLogin = () => {
     dispatch(login(username, password))
+    setUsername('')
+    setPassword('')
   }
   return (
     <div>
