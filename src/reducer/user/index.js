@@ -1,6 +1,7 @@
 import { users } from '../../data'
 
 export const LOGIN = 'USER/LOGIN'
+export const LOGOUT = 'USER/LOGOUT'
 
 export const login = (username, password) => {
   return {
@@ -10,11 +11,16 @@ export const login = (username, password) => {
   }
 }
 
+export const logout = () => {
+  return {
+    type: LOGOUT,
+  }
+}
+
 const initUser = {
   isAuth: false,
   id: 0,
   name: 'anonymous',
-  role: 'ROLE_ANONYMOUS',
 }
 
 const user = (state = initUser, action) => {
@@ -29,10 +35,13 @@ const user = (state = initUser, action) => {
           isAuth: true,
           id: user.id,
           name: user.name,
-          role: user.role,
         }
       } else {
         return state
+      }
+    case LOGOUT:
+      return {
+        ...initUser,
       }
     default:
       return state
