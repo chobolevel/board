@@ -5,6 +5,8 @@ import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import rootReducer from './reducer'
 import { createStore } from 'redux'
+import './styles/init.css'
+import './styles/style.css'
 
 const store = createStore(rootReducer)
 
