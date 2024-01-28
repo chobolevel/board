@@ -20,6 +20,7 @@
 }
 .container {
     padding: 200px 100px;
+    text-align: center;
 }
 .input-area-wrapper {
     width: 100%;
