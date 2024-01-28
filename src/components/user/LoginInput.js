@@ -1,11 +1,19 @@
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { login } from '../../reducer/user'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const LoginInput = () => {
+  const navigate = useNavigate()
+  const user = useSelector((state) => state.user)
   const dispatch = useDispatch()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const handleKeyDown = (e) => {
+    if (e.keyCode === 13) {
+      handleUserLogin()
+    }
+  }
   const handleUsernameChange = (e) => {
     setUsername(e.target.value)
   }
@@ -17,6 +25,11 @@ const LoginInput = () => {
     setUsername('')
     setPassword('')
   }
+  useEffect(() => {
+    if (user.isAuth) {
+      navigate('/')
+    }
+  }, [user, navigate])
   return (
     <div className="input-area-wrapper">
       <div className="input-area-inner">
@@ -25,6 +38,7 @@ const LoginInput = () => {
           <input
             type="text"
             placeholder="아이디를 입력하세요."
+            onKeyDown={handleKeyDown}
             onChange={handleUsernameChange}
             value={username}
           />
@@ -34,6 +48,7 @@ const LoginInput = () => {
           <input
             type="password"
             placeholder="비밀번호를 입력하세요."
+            onKeyDown={handleKeyDown}
             onChange={handlePasswordChange}
             value={password}
           />
