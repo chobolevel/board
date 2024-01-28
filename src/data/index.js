@@ -3,13 +3,13 @@ export const users = [
     id: 1,
     username: 'user1',
     password: '1234',
-    name: 'user1',
+    name: '사용자',
   },
   {
     id: 2,
     username: 'user2',
     password: '1234',
-    name: 'user2',
+    name: '사업자',
   },
 ]
 export const boards = [
