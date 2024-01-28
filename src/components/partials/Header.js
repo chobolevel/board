@@ -22,11 +22,16 @@ const Header = () => {
         </ul>
         <ul>
           {user.isAuth ? (
-            <li>
-              <Link to="/logout" onClick={handleLogout}>
-                로그아웃
-              </Link>
-            </li>
+            <>
+              <li>
+                <p>{user.name}님 환영합니다.</p>
+              </li>
+              <li>
+                <Link to="/logout" onClick={handleLogout}>
+                  로그아웃
+                </Link>
+              </li>
+            </>
           ) : (
             <li>
               <Link to="/login">로그인</Link>
