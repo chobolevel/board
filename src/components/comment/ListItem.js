@@ -1,8 +1,8 @@
 const ListItem = ({ comment }) => {
   return (
-    <div>
-      <h4>{comment.title}</h4>
-      <p>{comment.content}</p>
+    <div className="comment-list-item">
+      <h4 className="comment-item-title">{comment.title}</h4>
+      <p className="comment-item-content">{comment.content}</p>
     </div>
   )
 }

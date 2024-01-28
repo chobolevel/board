@@ -10,8 +10,8 @@ const Header = () => {
     dispatch(logout())
   }
   return (
-    <div>
-      <div>
+    <div className="header-wrapper">
+      <div className="header-inner">
         <ul>
           <li>
             <Link to="/">홈</Link>

@@ -1,5 +1,5 @@
 const Root = () => {
-  return <div>Root Page Route</div>
+  return <div className="container">Root Page Route</div>
 }
 
 export default Root

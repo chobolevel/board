@@ -1,7 +1,7 @@
 import { users } from '../../data'
 
-export const LOGIN = 'USER/LOGIN'
-export const LOGOUT = 'USER/LOGOUT'
+const LOGIN = 'USER/LOGIN'
+const LOGOUT = 'USER/LOGOUT'
 
 export const login = (username, password) => {
   return {
@@ -30,6 +30,7 @@ const user = (state = initUser, action) => {
         (user) => user.username === action.username && user.password === action.password
       )
       if (user) {
+        alert('로그인 성공')
         return {
           ...state,
           isAuth: true,
@@ -37,6 +38,7 @@ const user = (state = initUser, action) => {
           name: user.name,
         }
       } else {
+        alert('[로그인 실패]\n로그인 정보를 찾을 수 없습니다.')
         return state
       }
     case LOGOUT:
